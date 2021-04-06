@@ -1,4 +1,5 @@
 import React from 'react';
+import { Timeline } from '../components/Timeline'
 
 export class App extends React.Component {
 
@@ -6,6 +7,7 @@ export class App extends React.Component {
     return (
       <div>
        <p>test</p>
+       <Timeline />
       </div>
     )
   }
