@@ -26,7 +26,9 @@ export default class Timeline extends React.Component<{}, timeline>{
         return (
           <section className={'timeline'}>
             <div className={'fileBox'}>
-              <File />
+              <File name="file 1"/>
+              <File name="file 2"/>
+              <File name="file 3"/>
             </div>
 
             <button
@@ -37,7 +39,10 @@ export default class Timeline extends React.Component<{}, timeline>{
             >
               Add Track
             </button>
-            {this.state.trackList}
+            <div>
+              { this.state.trackList }
+            </div>
+            
           </section>
         )
     }
