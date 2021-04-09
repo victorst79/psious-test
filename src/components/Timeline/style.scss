@@ -1,8 +1,8 @@
-.timeline {
-    background-color: grayscale($color: #a1a1a13d);
-}
+.tl-container {
+    display: grid;
 
-.fileBox {
-    height: 30px;
-    margin: 30px;
+    &_files {
+        //        
+    }
+
 }

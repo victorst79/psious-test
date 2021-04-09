@@ -1,18 +1,18 @@
 import React from 'react';
-import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { DndProvider } from 'react-dnd'
 import Timeline from '../components/Timeline'
 
-export class App extends React.Component {
-
-  render() {
-    return (
+const App = () => {
+  return (
+    <div className="App">
+      <h1>Psious video editor</h1>
+      
       <DndProvider backend={HTML5Backend}>
-        <div>
-        <h1>Timeline</h1>
         <Timeline />
-        </div>
       </DndProvider>
-    )
-  }
+    </div>
+  );
 }
+
+export default App;
