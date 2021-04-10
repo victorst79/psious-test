@@ -1,32 +1,24 @@
 import React from 'react';
-import { useDrag } from 'react-dnd'
+import { Draggable } from 'react-beautiful-dnd'
+import './styles.scss'
 
-const style = {
-    border: '1px dashed gray',
-    backgroundColor: 'white',
-    padding: '0.5rem 1rem',
-    marginRight: '1.5rem',
-    marginBottom: '1.5rem',
-    cursor: 'move',
-    cssFloat: 'left',
-};
+class File extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
 
-const File = (props) => {
-    const [collected, drag, dragPreview] = useDrag(() => ({
-        type: 'file',
-        item: props.id,
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            console.log(dropResult)
         }
-      }))
+    }
 
-
-    return ( 
-        <div ref={drag} style={{ ...style }}>
-            {props.name}
-        </div>
-    )
+    render() {
+        return( 
+          <Draggable>
+            <div className={'file_container'}>
+                {this.props.name}
+            </div>
+          </Draggable>
+        )
+    }
 }
 
 export default File;

@@ -1,22 +1,24 @@
 import React from 'react';
-import { useDrop } from 'react-dnd';
+import { Droppable } from 'react-beautiful-dnd'
 import './style.scss'
 
-const Track = (props) => {
-    const [{ canDrop, isOver }, drop] = useDrop(() => ({
-        accept: 'file',
-        drop: () => ({ name: 'track' }),
-        collect: (monitor) => ({
-            isOver: monitor.isOver(),
-            canDrop: monitor.canDrop(),
-        })
-    }));
+class Track extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            files: []
+        }
+    }
 
-    return ( 
-        <div className={'track-container'} ref={drop} role={'Dustbin'}>
-                {props.nameTrack}
-        </div>
-    )
+    render() {
+        return (
+            <div className={'track_container'}>
+                <Droppable droppableId={this.props.id}>
+                        {this.props.nameTrack}
+                </Droppable>
+            </div>
+        )
+    }
 }
 
 export default Track;
