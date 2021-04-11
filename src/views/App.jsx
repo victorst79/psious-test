@@ -1,11 +1,12 @@
 import React from 'react';
 import Timeline from '../components/Timeline'
+import NavAppBar from  '../components/AppBar'
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Psious video editor</h1>
-        <Timeline />
+      <NavAppBar />
+      <Timeline />
     </div>
   );
 }

@@ -79,7 +79,7 @@ class Track extends React.Component {
 
                         this.setState({files: files})
                     }}>
-                    {file.name}
+                    <span>{file.name}</span>
                 </Rnd>
             )
         )
@@ -94,7 +94,7 @@ class Track extends React.Component {
                 className={'track_container'}
                 onDragOver={this.onDragOverHandler}
                 onDrop={this.onDropHandler}>
-                    {nameTrack}
+                    <span className={'track-name'}>{nameTrack}</span>
                     {this.renderFiles()}
             </div>
         )

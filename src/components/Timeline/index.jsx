@@ -1,6 +1,9 @@
 import React from 'react';
 import File from '../File'
 import Track from '../Track'
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import exportAction from '../../utils/exportAction'
 import './style.scss'
 
 export default class Timeline extends React.Component {
@@ -36,7 +39,11 @@ export default class Timeline extends React.Component {
                 ...this.state.allFiles,
                 ...formatDataFiles
             }
-        }, console.log(this.state.allFiles))
+        })
+    }
+
+    getTotalTime = () => {
+        exportAction(this.state.allFiles)
     }
 
     render() {
@@ -44,19 +51,25 @@ export default class Timeline extends React.Component {
 
         return ( 
             <section className={'tl-container'}>
-                <div className={'tl-container_files'}>
-                    {files.map((file, index) => (
-                        <File key={`file-${index}`} name={file.name} id={file.id} color={file.color} />
-                    ))}
-                </div>
-                
-                <div>
-                    <button onClick={this.addTrack}>Add track</button>
-                    <button onClick={this.getTotalTime}>Total time</button>
-                    <div>
-                        {trackList.map(track => track)}
-                    </div>
-                </div>
+                <Grid container>
+                    <Grid item xs={12}>
+                        <div className={'tl-container_files'}>
+                            <h3>Files/Resources</h3>
+                            {files.map((file, index) => (
+                                <File key={`file-${index}`} name={file.name} id={file.id} color={file.color} />
+                            ))}
+                        </div>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Grid className={'tl_file-container'} >
+                            <Button variant="contained" color="primary" onClick={this.addTrack}>Add track</Button>
+                            <Button variant="contained" color="primary" onClick={this.getTotalTime}>Export</Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {trackList.map(track => track)}
+                        </Grid>
+                    </Grid>
+                </Grid>
             </section>
          )
     }
