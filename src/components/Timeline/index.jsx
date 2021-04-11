@@ -13,7 +13,7 @@ export default class Timeline extends React.Component {
                 {id: 3, name: 'File-3', color: '#ef9a9a'}
             ],
             trackList: [<Track nameTrack={'Track-0'} key={`track-0`} onChange={this.getFilesInTrack} />],
-            allFiles: []
+            allFiles: {}
         }
     }
 
@@ -28,14 +28,15 @@ export default class Timeline extends React.Component {
     }
 
     getFilesInTrack = data => {
-        console.log(...data.files)
+        const formatDataFiles = {}
+        data.files.map(file => formatDataFiles[file.idTrack] = file)
+
         this.setState({
-            allFiles: [
+            allFiles: {
                 ...this.state.allFiles,
-                ...data.files
-            ]
-        })
-        console.log(this.state.allFiles)
+                ...formatDataFiles
+            }
+        }, console.log(this.state.allFiles))
     }
 
     render() {

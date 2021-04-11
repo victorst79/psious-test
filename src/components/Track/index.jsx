@@ -1,6 +1,6 @@
 import React from 'react';
-import './style.scss'
 import { Rnd } from "react-rnd";
+import './style.scss'
 
 class Track extends React.Component {
     constructor(props) {
@@ -17,18 +17,19 @@ class Track extends React.Component {
 
     onDragOverHandler(event) {
         event.preventDefault();
-        console.log('Over drag')
     }
 
     onDropHandler(event) {
-        console.log('Dropped')
+        const auxId = `${this.props.nameTrack}-${this.state.files.length}`
         const fileName = event.dataTransfer.getData("file-name")
         const color = event.dataTransfer.getData("file-color")
         const position = event.clientX        
+        
 
         this.setState({
             files: [...this.state.files, {
                     id: this.state.files.length,
+                    idTrack: auxId,
                     name: fileName,
                     width: 200,
                     height: 52,
