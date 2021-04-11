@@ -44,7 +44,7 @@ class Track extends React.Component {
                     key={index}
                     className={'track_file'}
                     style={{backgroundColor: file.color}}
-                    bounds=".track_container"
+                    bounds="parent"
                     enableResizing={{
                         top: false,
                         right: true,
