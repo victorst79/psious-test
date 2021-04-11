@@ -12,18 +12,30 @@ export default class Timeline extends React.Component {
                 {id: 2, name: 'File-2', color: '#f48fb1'},
                 {id: 3, name: 'File-3', color: '#ef9a9a'}
             ],
-            trackList: [<Track nameTrack={'Track-0'} key={`track-0`} />]
+            trackList: [<Track nameTrack={'Track-0'} key={`track-0`} onChange={this.getFilesInTrack} />],
+            allFiles: []
         }
     }
 
     addTrack = () => {
         this.setState({
           trackList: [...this.state.trackList, 
-            <Track 
+            <Track
                 key={`track-${this.state.trackList.length}`}
                 id={this.state.trackList.length}
-                nameTrack={`Track-${this.state.trackList.length}`} />]
+                nameTrack={`Track-${this.state.trackList.length}`} onChange={e => this.getFilesInTrack(e)} />]
         })
+    }
+
+    getFilesInTrack = data => {
+        console.log(...data.files)
+        this.setState({
+            allFiles: [
+                ...this.state.allFiles,
+                ...data.files
+            ]
+        })
+        console.log(this.state.allFiles)
     }
 
     render() {
@@ -39,6 +51,7 @@ export default class Timeline extends React.Component {
                 
                 <div>
                     <button onClick={this.addTrack}>Add track</button>
+                    <button onClick={this.getTotalTime}>Total time</button>
                     <div>
                         {trackList.map(track => track)}
                     </div>

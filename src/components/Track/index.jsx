@@ -11,6 +11,10 @@ class Track extends React.Component {
         this.onDropHandler = this.onDropHandler.bind(this)
     }
 
+    componentDidUpdate() {
+        this.props.onChange && this.props.onChange(this.state);
+    }
+
     onDragOverHandler(event) {
         event.preventDefault();
         console.log('Over drag')
