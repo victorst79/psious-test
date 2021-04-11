@@ -9,7 +9,6 @@ class File extends React.Component {
     }
 
     dragStartHandler(file, name, color) {
-      console.log('Dragging', file)
       file.dataTransfer.setData("file-name", name)
       file.dataTransfer.setData("file-color", color)
     }

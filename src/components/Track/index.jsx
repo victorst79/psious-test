@@ -71,7 +71,7 @@ class Track extends React.Component {
                     }}
                     onResizeStop={(e, direction, ref, delta, position) => {
                         const item = files[file.id]
-                        item.width = ref.style.width;
+                        item.width = parseInt(ref.style.width);
                         item.height = ref.style.height;
                         item.x = position.x;
                         item.y = position.y;
