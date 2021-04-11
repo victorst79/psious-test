@@ -1,23 +1,31 @@
 import React from 'react';
-import { Draggable } from 'react-beautiful-dnd'
 import './styles.scss'
 
 class File extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = {}
+        this.dragStartHandler = this.dragStartHandler.bind(this)
+    }
 
-        }
+    dragStartHandler(file, name, color) {
+      console.log('Dragging', file)
+      file.dataTransfer.setData("file-name", name)
+      file.dataTransfer.setData("file-color", color)
     }
 
     render() {
-        return( 
-          <Draggable>
-            <div className={'file_container'}>
-                {this.props.name}
-            </div>
-          </Draggable>
-        )
+      const { name, color } = this.props;
+
+      return( 
+          <div 
+            style={{backgroundColor: color}}
+            className={'file_container'}
+            draggable="true"
+            onDragStart={(ev) => this.dragStartHandler(ev, name, color)}>
+              {name}
+          </div>
+      )
     }
 }
 
