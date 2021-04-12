@@ -17,6 +17,15 @@ yarn start
 ## Desarrollo
 
 En un principio el proyecto comenzo siendo en React/TS y basado en hooks.
-Esto ha sido un grave error, ya que se necesita que en este caso los componentes sean Clases y no funciones para que tengan una instancia por cada componente generado.
-Tambien dedice mucho tiempo a investigar librerias de drag an drop para react, cuando realmente ha sido mas facil hacerlo todo por eventos en JS plano/vanila.
-En cierto punto del desarrollo me di cuenta que mi planteamiento no llegaba a nada y que estaba complicando mucho el proyecto. Lo comence de 0 en Javascript plano y funciones con clases y solo usando [React-rnd](https://github.com/bokuweb/react-rnd) para el resize y movimiento de los files en el editor.
+Esto ha sido un grave error, ya que se necesita que en este caso los componentes sean Clases y no funciones para que tengan una instancia por cada componente generado. A su vez para evitar usar codigo vanilla, intente usar varias librerias de drag and drops y resizes lo cual sumado a TS incremento mucho la complejidad del proyecto.
+
+Finalmente tras 2 reinicios al proyecto decide desarrollar toda la funcionalidad de drags y drops mediante JS plano/Vanilla, junto con [React-rnd](https://github.com/bokuweb/react-rnd) que me facilitaba la funcionalidad para los movimientos horizontales y el resize de los elementos.
+
+Mockup componentes
+![image](https://user-images.githubusercontent.com/25077237/114353750-ae1feb00-9b6d-11eb-865a-fd5a592b2c55.png)
+
+
+El proyecto actual consta de ayuda de las siguientes dependencias: 
+- [React-rnd](https://github.com/bokuweb/react-rnd)
+- [Material UI(https://material-ui.com/)
+- [SASS](https://www.npmjs.com/package/node-sass)
