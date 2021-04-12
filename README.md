@@ -27,5 +27,5 @@ Mockup componentes
 
 El proyecto actual consta de ayuda de las siguientes dependencias: 
 - [React-rnd](https://github.com/bokuweb/react-rnd)
-- [Material UI(https://material-ui.com/)
+- [Material UI](https://material-ui.com/)
 - [SASS](https://www.npmjs.com/package/node-sass)
